@@ -1,19 +1,8 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/08 13:39:20 by tlupu             #+#    #+#              #
-#    Updated: 2024/02/08 15:21:00 by tlupu            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = push_swap
 FLAGZ = -Wall -Werror -Wall
 FT_PRINTF_DIR = ./printf
-SRC = push_swap.c $(FT_PRINTF_DIR)/*.c
+SRC = push_swap.c $(FT_PRINTF_DIR)/*.c \
+	  checks.c add_stackA.c \
 
 all:	$(NAME) 
 
