@@ -1,8 +1,21 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/21 16:15:09 by tlupu             #+#    #+#              #
+#    Updated: 2024/02/21 18:24:09 by tlupu            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 FLAGZ = -Wall -Werror -Wall
 FT_PRINTF_DIR = ./printf
 SRC = push_swap.c $(FT_PRINTF_DIR)/*.c \
-	  checks.c add_stackA.c \
+	  checks.c add_stackA.c split.c\
+	  operationsA.c operationB.c
 
 all:	$(NAME) 
 
@@ -21,3 +34,4 @@ fclean:	clean
 	rm -f $(NAME).a
     
 re:	fclean	all
+

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/21 16:14:17 by tlupu             #+#    #+#             */
+/*   Updated: 2024/02/21 18:23:22 by tlupu            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H "push_swap.h"
@@ -7,7 +18,9 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <string.h>
+#include <printf.h>
 #include "printf/ft_printf.h"
+#include <limits.h>
 
 typedef struct s_list {
     
@@ -22,10 +35,18 @@ typedef struct s_list {
 
 int	ft_check_num(char *str);
 int	ft_atoi(const char *str);
-int	ft_checkdup(int argc, char **argv);
+int	ft_checkdup(char **argv);
 int check_args(int argc, char *argv[]);
-void    add_numbers_to_stack(char *str, t_list **stack);
 t_list	*ft_lstnew(int content);
+char	**ft_split(const char *s, char c);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	reverse_rotate_b(t_list **stack_b);
+void	rotate_b(t_list **stack_b);
+void	push_b(t_list **stack_b, t_list **stack_a);
+void	swap_b(t_list **stack_b);
+void	swap_a(t_list **stack_a);
+void	push_a(t_list **stack_a, t_list **stack_b);
+void	rotate_a(t_list **stack_a);
+void	reverse_rotate_a(t_list **stack_a);
 
 #endif

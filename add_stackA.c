@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add_stackA.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/21 16:14:53 by tlupu             #+#    #+#             */
+/*   Updated: 2024/02/21 16:14:56 by tlupu            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
@@ -27,32 +39,4 @@ t_list	*ft_lstnew(int content)
 	new->data = content;
 	new->next = NULL;
 	return (new);
-}
-
-void    add_numbers_to_stack(char *str, t_list **stack)
-{
-    int num = 0;
-    int sign = 1;
-    int i = 0;
-    while (str[i])
-    {
-        if (str[i] >= '0' && str[i] <= '9')
-        {
-            num = (num * 10) + str[i] - '0';
-        }
-        else if (str[i] == '-')
-        {
-            sign = -1;
-        }
-        else if(str[i] == ' ' && num != 0)
-        {
-            ft_lstadd_back(stack, (ft_lstnew(num * sign)));
-            num = 0;
-            sign = 1;
-        }
-    }
-    if (num != 0)
-    {
-        ft_lstadd_back(stack, (ft_lstnew(num * sign)));
-    }
 }

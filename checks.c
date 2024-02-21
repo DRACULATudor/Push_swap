@@ -1,27 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checks.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/21 16:14:28 by tlupu             #+#    #+#             */
+/*   Updated: 2024/02/21 16:49:33 by tlupu            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_check_num(char *str)
 {
 	int	i;
-    int	sign_count;
+	int	sign;
 
-    i = 0;
-    sign_count = 0;
-    if (str[i] == '-' || str[i] == '+') {
-        sign_count++;
-        i++;
-    }
-    while (str[i] != '\0')
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return 0;
-        i++;
-    }
-    if (sign_count > 1)
-        return 0;
-    return 1;
+	i = 0;
+	sign = 0;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		sign = 1;
+		i++;
+	}
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }
-
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -49,89 +59,17 @@ int	ft_atoi(const char *str)
 	return (sign * result);
 }
 
-
-
-int count_numbers(char *argv)
-{
-    int count = 0;
-    char *start = argv;
-    char *end;
-
-    while (*start)
-    {
-        while (*start == ' ')
-            start++;
-        end = start;
-        while (*end != ' ' && *end != '\0')
-            end++;
-        if (start != end)
-        {
-            count++;
-            start = end;
-        }
-    }
-
-    return count;
-}
-
-void store_numbers(char *argv, int *numbers)
-{
-    int count = 0;
-    char *start = argv;
-    char *end;
-
-    while (*start)
-    {
-        while (*start == ' ')
-            start++;
-        end = start;
-        while (*end != ' ' && *end != '\0')
-            end++;
-        if (start != end)
-        {
-            char temp = *end;
-            *end = '\0';
-            numbers[count++] = atoi(start);
-            *end = temp;
-            start = end;
-        }
-    }
-}
-
-int check_duplicates(int *numbers, int count)
-{
-    for (int i = 0; i < count; i++)
-    {
-        for (int j = i + 1; j < count; j++)
-        {
-            if (numbers[i] == numbers[j])
-            {
-                return 1;  
-            }
-        }
-    }
-    return 0;  
-}
-
-int ft_checkdupcust(char *argv)
-{
-    char *copy = strdup(argv);
-    int count = count_numbers(copy);
-    int *numbers = malloc(sizeof(int) * count);
-    store_numbers(copy, numbers);
-    int result = check_duplicates(numbers, count);
-    free(numbers);
-    free(copy);
-    return result;
-}
-
-int	ft_checkdup(int argc, char **argv)
+int	ft_checkdup(char **argv)
 {
 	int	i;
 	int	j;
+	int	argc;
 
 	i = 0;
 	j = 0;
+	argc = 0;
+	while (argv[argc])
+		argc++;
 	while (i < argc)
 	{
 		j = i + 1;
@@ -146,33 +84,62 @@ int	ft_checkdup(int argc, char **argv)
 	return (0);
 }
 
-int check_args(int argc, char *argv[])
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
+	size_t	i;
+
+	i = 0;
+	if (n == 0)
+	{
+		return (0);
+	}
+	while (s1[i] != '\0' && s1[i] == s2[i] && i <= n)
+	{
+		i++;
+	}
+	if (i == n)
+	{
+		return (0);
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+int	check_args(int argc, char **argv)
+{
+	int i;
+	char **split_argv;
+
+	i = 0;
 	if (argc < 2)
 	{
-		ft_printf("\n");
-		return(0);
+		ft_printf("Error\n");
+		return (0);
 	}
 	if (argc == 2)
 	{
-		if (!ft_check_num(argv[1]))
+		split_argv = ft_split(argv[1], ' ');
+		if (split_argv == NULL)
 		{
 			ft_printf("Error\n");
-            return 0;
+			return (0);
 		}
-		else if (ft_check_num(argv[1]))
-		{
-			if (ft_checkdupcust(argv[1]))
-			{
-
-			}
-			
-		}
-		
-		
+		argv = split_argv;
 	}
-	
-	
+	if (!ft_strncmp(argv[0], "./push_swap", 10))
+		i++;
+	while (argv[i])
+	{
+		if (ft_check_num(argv[i]) == 0)
+		{
+			ft_printf("Error\n");
+			return (0);
+		}
+		if (ft_checkdup(&argv[i]) == 1)
+		{
+			ft_printf("Error\n");
+			return (0);
+		}
+		i++;
+	}
 	return (1);
-}	
-
+}
