@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:17 by tlupu             #+#    #+#             */
-/*   Updated: 2024/02/21 18:23:22 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/02/22 15:59:15 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ void	swap_a(t_list **stack_a);
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	rotate_a(t_list **stack_a);
 void	reverse_rotate_a(t_list **stack_a);
+void 	add_to_Sa(t_list **stack,char **str);
+void	free_split_argv(char **str);
+int	lenofnums(char **arr);
 
 #endif
