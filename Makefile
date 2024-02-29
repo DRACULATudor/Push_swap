@@ -6,7 +6,7 @@
 #    By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 16:15:09 by tlupu             #+#    #+#              #
-#    Updated: 2024/02/28 14:17:51 by tlupu            ###   ########.fr        #
+#    Updated: 2024/02/29 14:07:27 by tlupu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FT_PRINTF_DIR = ./printf
 SRC = push_swap.c $(FT_PRINTF_DIR)/*.c \
 	  checks.c add_stackA.c split.c\
 	  operationsA.c operationB.c free.c\
-	  lindex.c \
+	  lindex.c sort_operations.c\
 
 all:	$(NAME) 
 

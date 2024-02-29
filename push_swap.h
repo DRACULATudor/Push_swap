@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:17 by tlupu             #+#    #+#             */
-/*   Updated: 2024/02/22 15:59:15 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/02/29 14:24:41 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,8 @@ void	reverse_rotate_a(t_list **stack_a);
 void 	add_to_Sa(t_list **stack,char **str);
 void	free_split_argv(char **str);
 int	lenofnums(char **arr);
+void	sort_smlen_helper(t_list **stack);
+void	sort_smlen(t_list **stack);
+int	check_list_sorted(t_list **stack);
 
 #endif

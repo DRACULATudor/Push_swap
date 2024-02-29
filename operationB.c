@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:17:33 by tlupu             #+#    #+#             */
-/*   Updated: 2024/02/21 18:21:32 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/02/29 14:48:04 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	swap_b(t_list **stack_b)
 	temp = (*stack_b)->data;
 	(*stack_b)->data = (*stack_b)->next->data;
 	(*stack_b)->next->data = temp;
+	ft_printf("sb\n");
 }
 
 void	push_b(t_list **stack_b, t_list **stack_a)
@@ -33,6 +34,7 @@ void	push_b(t_list **stack_b, t_list **stack_a)
 	*stack_a = (*stack_a)->next;
 	tmp->next = *stack_b;
 	*stack_b = tmp;
+	ft_printf("pb\n");
 }
 
 void	rotate_b(t_list **stack_b)
@@ -49,6 +51,7 @@ void	rotate_b(t_list **stack_b)
 	while (last->next)
 		last = last->next;
 	last->next = tmp;
+	ft_printf("rb\n");
 }
 
 void	reverse_rotate_b(t_list **stack_b)
@@ -69,4 +72,5 @@ void	reverse_rotate_b(t_list **stack_b)
 	tmp_sc_last->next = NULL;
 	last->next = *stack_b;
 	*stack_b = last;
+	ft_printf("rrb\n");
 }

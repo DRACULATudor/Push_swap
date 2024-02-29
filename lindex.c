@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:58:24 by tlupu             #+#    #+#             */
-/*   Updated: 2024/02/28 14:30:12 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/02/29 14:24:15 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	lenofnums(char **arr)
 	{
 		i = 0;
 		if (arr[j][0] != '\0')
-		{
 			while (arr[j][i] != '\0')
 			{
 				if ((arr[j][i] != ' ' && arr[j][i] != '\t' && arr[j][i] != '\n'
@@ -36,8 +35,23 @@ int	lenofnums(char **arr)
 					len++;
 				i++;
 			}
-		}
 		j++;
 	}
 	return (len);
+}
+
+int	check_list_sorted(t_list **stack)
+{
+    t_list *current;
+
+    if (stack == NULL || *stack == NULL)
+        return (1);
+    current = *stack;
+    while (current->next)
+    {
+        if (current->data > current->next->data)
+            return (0);
+        current = current->next;
+    }
+    return (1);
 }
