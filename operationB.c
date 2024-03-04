@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:17:33 by tlupu             #+#    #+#             */
-/*   Updated: 2024/02/29 14:48:04 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/01 11:22:49 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,11 @@ void	rotate_b(t_list **stack_b)
 
 void	reverse_rotate_b(t_list **stack_b)
 {
-	t_list *tmp_sc_last;
-	t_list *last;
+	t_list	*tmp_sc_last;
+	t_list	*last;
 
 	last = *stack_b;
 	tmp_sc_last = NULL;
-
 	if (stack_b == NULL || *stack_b == NULL || (*stack_b)->next == NULL)
 		return ;
 	while (last->next)
@@ -73,4 +72,24 @@ void	reverse_rotate_b(t_list **stack_b)
 	last->next = *stack_b;
 	*stack_b = last;
 	ft_printf("rrb\n");
+}
+
+void	swapswap(t_list **stack_a, t_list **stack_b)
+{
+	int temp;
+
+	if (stack_b != NULL && *stack_b != NULL && (*stack_b)->next != NULL)
+	{
+		temp = (*stack_b)->data;
+		(*stack_b)->data = (*stack_b)->next->data;
+		(*stack_b)->next->data = temp;
+	}
+
+	if (stack_a != NULL && *stack_a != NULL && (*stack_a)->next != NULL)
+	{
+		temp = (*stack_a)->data;
+		(*stack_a)->data = (*stack_a)->next->data;
+		(*stack_a)->next->data = temp;
+	}
+	ft_printf("ss\n");
 }
