@@ -6,7 +6,7 @@
 #    By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 16:15:09 by tlupu             #+#    #+#              #
-#    Updated: 2024/03/04 15:09:23 by tlupu            ###   ########.fr        #
+#    Updated: 2024/03/05 16:28:28 by tlupu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC = push_swap.c $(FT_PRINTF_DIR)/*.c \
 	  operationsA.c operationB.c free.c\
 	  lindex.c sort_operations3num.c\
 	  sort_operations4and5num.c init_nodes.c\
+	  sorting.c\
 
 all:	$(NAME) 
 

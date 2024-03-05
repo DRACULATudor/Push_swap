@@ -6,30 +6,15 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:10 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/04 15:53:58 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/05 16:32:19 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*cheapest(t_list *stack_a)
+void 	init_nodes_forb(t_list **stack_a, t_list **stack_b)
 {
-	if (!stack_a)
-		return (NULL);
-	while (stack_a)
-	{
-		if (stack_a->cheapest)
-			return (stack_a);
-		stack_a = stack_a->next;
-	}
-	return (NULL);
-}
-
-void	move_na_to_nb(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*cheapest_node;
-
-	cheapest_node = cheapest(*stack_a);
+	  
 }
 
 void	sort(t_list **stack_a, t_list **stack_b)
@@ -48,6 +33,12 @@ void	sort(t_list **stack_a, t_list **stack_b)
 		init_nodes(*stack_a, *stack_b);
 		move_na_to_nb(stack_a, stack_b);
 	}
+	sort_smlen(&stack_a);
+	while (stack_b)
+	{
+		init_nodes_forb(stack_a, stack_b);
+	}
+	
 }
 
 int	main(int argc, char *argv[])
