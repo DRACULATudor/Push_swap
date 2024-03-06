@@ -27,19 +27,19 @@ t_list	*cheapest(t_list *stack_a)
 
 void	rotate(t_list **stack_a, t_list **stack_b, t_list *cheapest_node)
 {
-	while (stack_b != cheapest_node->target_node && stack_a != cheapest_node)
-		rr(stack_a, stack_b);
-	curent_s_index(stack_a);
-	curent_s_index(stack_b);
+	while ((*stack_b) != cheapest_node->target_node && (*stack_a) != cheapest_node)
+		rotaterotate(stack_a, stack_b);
+	curent_s_index(*stack_a);
+	curent_s_index(*stack_b);
 }
 
 void	reverse_rotation(t_list **stack_a, t_list **stack_b,
 		t_list *cheapest_node)
 {
-	while (stack_b != cheapest_node->target_node && stack_a != cheapest_node)
+	while ((*stack_b) != cheapest_node->target_node && (*stack_a) != cheapest_node)
 		reverse_rotaterotate(stack_a, stack_b);
-	curent_s_index(stack_a);
-	curent_s_index(stack_b);
+	curent_s_index(*stack_a);
+	curent_s_index(*stack_b);
 }
 
 void	check_push(t_list **stack, t_list *cheap_node, int num)

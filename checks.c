@@ -15,15 +15,10 @@
 int	ft_check_num(char *str)
 {
 	int	i;
-	int	sign;
 
 	i = 0;
-	sign = 0;
 	if (str[i] == '-' || str[i] == '+')
-	{
-		sign = 1;
 		i++;
-	}
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')

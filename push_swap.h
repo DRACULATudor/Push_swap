@@ -16,7 +16,7 @@
 # include "printf/ft_printf.h"
 # include <fcntl.h>
 # include <limits.h>
-# include <printf.h>
+# include <stdio.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <string.h>
@@ -77,5 +77,6 @@ void				reverse_rotation(t_list **stack_a, t_list **stack_b,
 						t_list *cheapest_node);
 void				check_push(t_list **stack, t_list *cheap_node, int num);
 void				move_na_to_nb(t_list **stack_a, t_list **stack_b);
+void	free_errors(t_list **stack_a);
 
 #endif
