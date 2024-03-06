@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 09:55:17 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/01 09:56:47 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/06 09:33:22 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,26 +80,4 @@ void	move_max_to_b(t_list **stack_a, t_list **stack_b)
 		curr = *stack_a;
 	}
 	push_b(stack_b, stack_a);
-}
-
-void	sort_fivelem(t_list **stack_a, t_list **stack_b, int len)
-{
-	if (stack_a == NULL || *stack_a == NULL)
-		return ;
-	if (len == 4)
-	{
-		move_max_to_b(stack_a, stack_b);
-		sort_smlen(stack_a);
-		push_a(stack_a, stack_b);
-		rotate_a(stack_a);
-	}
-	else if (len == 5)
-	{
-		move_max_to_b(stack_a, stack_b);
-		move_min_to_b(stack_a, stack_b);
-		sort_smlen(stack_a);
-		push_a(stack_a, stack_b);
-		push_a(stack_a, stack_b);
-		rotate_a(stack_a);
-	}
 }

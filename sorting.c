@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 16:26:43 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/05 16:27:09 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/06 14:41:32 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,18 @@ void	reverse_rotation(t_list **stack_a, t_list **stack_b,
 	curent_s_index(*stack_b);
 }
 
-void	check_push(t_list **stack, t_list *cheap_node, int num)
+void	check_push(t_list **stack, t_list *targ_nod, int num)
 {
 	if (num == 4)
 	{
-		if (cheap_node->abovem_med)
+		if (targ_nod->abovem_med)
 			rotate_a(stack);
 		else
 			reverse_rotate_a(stack);
 	}
 	else if (num == 8)
 	{
-		if (cheap_node->abovem_med)
+		if (targ_nod->abovem_med)
 			rotate_b(stack);
 		else
 			reverse_rotate_b(stack);

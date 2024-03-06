@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:53 by tlupu             #+#    #+#             */
-/*   Updated: 2024/02/29 16:36:03 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/06 11:02:30 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void 	add_to_Sa(t_list **stack,char **str)
 			new_node = ft_lstnew(ft_atoi(str[i]));
 			if (new_node == NULL)
 			{
-				ft_printf("Error\n");
 				temp = *stack;
 				while (temp)
 				{
@@ -61,6 +60,7 @@ void 	add_to_Sa(t_list **stack,char **str)
 					free(temp);
 					temp = next2;
 				}
+				free_errors(stack);
 				*stack = NULL;
 				return;
 			}

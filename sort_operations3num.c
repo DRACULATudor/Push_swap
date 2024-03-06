@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:06:50 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/01 11:31:53 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/06 15:11:19 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sort_smlen(t_list **stack)
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
 	if ((*stack)->next->next == NULL)
-	{
+	{	
 		if ((*stack)->data > (*stack)->next->data)
 		{
 			swap_a(stack);

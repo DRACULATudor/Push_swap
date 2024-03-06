@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:10 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/05 16:32:19 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/06 15:00:20 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,8 @@ void	targ_node_forb(t_list *stack_a, t_list *stack_b)
 	int		max_index;
 
 	if (stack_b == NULL)
-	{
-		return;
-	}
-	
-	while (stack_a)
+		return ;
+	while (stack_b)
 	{
 		max_index = INT_MAX;
 		current_a = stack_a;
@@ -55,28 +52,35 @@ void	targ_node_forb(t_list *stack_a, t_list *stack_b)
 			current_a = current_a->next;
 		}
 		if (max_index == INT_MAX)
-			stack_b->target_node = find_min(&stack_a);
+			stack_b->target_node = findmin(&stack_a);
 		else
 			stack_b->target_node = targ_node;
 		stack_b = stack_b->next;
 	}
 }
 
-
-void 	init_nodes_forb(t_list **stack_a, t_list **stack_b)
+void	init_nodes_forb(t_list *stack_a, t_list *stack_b)
 {
-	  targ_node_forb(*stack_a, *stack_b);
-	  curent_s_index(*stack_a);
-	  curent_s_index(*stack_b);
+	curent_s_index(stack_a);
+	curent_s_index(stack_b);
+	targ_node_forb(stack_a, stack_b);
 }
 
-void 	move_back_sa(t_list **stack_a, t_list **stack_b)
+void	move_back_sa(t_list **stack_a, t_list **stack_b)
 {
+	t_list	*current;
+
 	check_push(stack_a, (*stack_b)->target_node, 4);
+	current = *stack_a;
+	while (current != NULL)
+	{
+		printf("%d\n", current->data);
+		current = current->next;
+	}
 	push_a(stack_a, stack_b);
 }
 
-void min_check(t_list **stack_a)
+void	min_check(t_list **stack_a)
 {
 	while ((*stack_a) != find_min(stack_a))
 	{
@@ -85,14 +89,14 @@ void min_check(t_list **stack_a)
 		else
 			reverse_rotate_a(stack_a);
 	}
-	
 }
 
 void	sort(t_list **stack_a, t_list **stack_b)
 {
-	int	len_a;
+	int		len_a;
+	t_list	*current;
 
-	len_a = len_stacbk(stack_a);
+	len_a = len_stack(stack_a);
 	if (stack_a == NULL || *stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
 	if (len_a-- > 3 && check_list_sorted(stack_a) == 0)
@@ -105,9 +109,15 @@ void	sort(t_list **stack_a, t_list **stack_b)
 		move_na_to_nb(stack_a, stack_b);
 	}
 	sort_smlen(stack_a);
-	while (stack_b)
+	while (*stack_b)
 	{
-		init_nodes_forb(stack_a, stack_b);
+		init_nodes_forb(*stack_a, *stack_b);
+		current = *stack_a;
+		while (current != NULL)
+		{
+			printf("%d\n", current->data);
+			current = current->next;
+		}
 		move_back_sa(stack_a, stack_b);
 	}
 	curent_s_index(*stack_a);
@@ -152,12 +162,11 @@ int	main(int argc, char *argv[])
 			sort(&stack_a, &stack_b);
 	}
 	current = stack_a;
-	while (current != NULL)
-	{
-		printf("%d\n", current->data);
-		current = current->next;
-	}
-	free_errors(&stack_a);
-	free(current);
-	return(0);
+	// while (current != NULL)
+	// {
+	// 	printf("%d  %d\n",current->data, current->index);
+	// 	current = current->next;
+	// }
+	free(stack_a);
+	return (0);
 }

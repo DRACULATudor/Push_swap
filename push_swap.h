@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:17 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/05 16:28:44 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/06 09:33:29 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int					lenofnums(char **arr);
 void				sort_smlen_helper(t_list **stack);
 void				sort_smlen(t_list **stack);
 int					check_list_sorted(t_list **stack);
-void				sort_fivelem(t_list **stack_a, t_list **stack_b, int len);
 void				move_max_to_b(t_list **stack_a, t_list **stack_b);
 void				move_min_to_b(t_list **stack_a, t_list **stack_b);
 t_list				*findmin(t_list **stack_a);
