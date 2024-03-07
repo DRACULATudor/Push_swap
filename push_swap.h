@@ -64,6 +64,7 @@ void				move_min_to_b(t_list **stack_a, t_list **stack_b);
 t_list				*findmin(t_list **stack_a);
 t_list				*findmax(t_list **stack_a);
 int					len_stack(t_list **stack_a);
+void				free_stack(t_list **stack);
 void				init_nodes(t_list *stack_a, t_list *stack_b);
 void				cheapest_node(t_list *stack_a);
 void				set_targ_node(t_list *stack_a, t_list *stack_b);
@@ -77,5 +78,12 @@ void				reverse_rotation(t_list **stack_a, t_list **stack_b,
 void				check_push(t_list **stack, t_list *cheap_node, int num);
 void				move_na_to_nb(t_list **stack_a, t_list **stack_b);
 void	free_errors(t_list **stack_a);
+void	sort(t_list **stack_a, t_list **stack_b);
+void	min_check(t_list **stack_a);
+void	move_back_sa(t_list **stack_a, t_list **stack_b);
+void	init_nodes_forb(t_list *stack_a, t_list *stack_b);
+void	targ_node_forb(t_list *stack_a, t_list *stack_b);
+t_list	*find_min(t_list **stack_a);
+
 
 #endif

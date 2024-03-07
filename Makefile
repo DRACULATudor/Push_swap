@@ -17,8 +17,8 @@ SRC = push_swap.c $(FT_PRINTF_DIR)/*.c \
 	  checks.c add_stackA.c split.c\
 	  operationsA.c operationB.c free.c\
 	  lindex.c sort_operations3num.c\
-	  sort_operations4and5num.c init_nodes.c\
-	  sorting.c\
+	  utils.c init_nodes.c\
+	  sorting.c sort2.c\
 
 all:	$(NAME) 
 

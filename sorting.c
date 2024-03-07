@@ -44,19 +44,22 @@ void	reverse_rotation(t_list **stack_a, t_list **stack_b,
 
 void	check_push(t_list **stack, t_list *targ_nod, int num)
 {
-	if (num == 4)
+	while (*stack != targ_nod)
 	{
-		if (targ_nod->abovem_med)
-			rotate_a(stack);
-		else
-			reverse_rotate_a(stack);
-	}
-	else if (num == 8)
-	{
-		if (targ_nod->abovem_med)
-			rotate_b(stack);
-		else
-			reverse_rotate_b(stack);
+		if (num == 4)
+		{
+			if (targ_nod->abovem_med)
+				rotate_a(stack);
+			else
+				reverse_rotate_a(stack);
+		}
+		if (num == 8)
+		{
+			if (targ_nod->abovem_med)
+				rotate_b(stack);
+			else
+				reverse_rotate_b(stack);
+		}
 	}
 }
 
@@ -71,6 +74,6 @@ void	move_na_to_nb(t_list **stack_a, t_list **stack_b)
 		&& !(cheapest_node->target_node->abovem_med))
 		reverse_rotation(stack_a, stack_b, cheapest_node);
 	check_push(stack_a, cheapest_node, 4);
-	check_push(stack_b, cheapest_node, 8);
+	check_push(stack_b, cheapest_node->target_node, 8);
 	push_b(stack_b, stack_a);
 }

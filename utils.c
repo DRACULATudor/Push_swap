@@ -48,36 +48,3 @@ t_list *findmin(t_list **stack_a)
 	return (min_node);
 }
 
-void	move_min_to_b(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*curr;
-	t_list	*min;
-
-	if (stack_a == NULL || *stack_a == NULL)
-		return ;
-	curr = *stack_a;
-	min = findmin(stack_a);
-	while (curr != min)
-	{
-		rotate_a(stack_a);
-		curr = *stack_a;
-	}
-	push_b(stack_b, stack_a);
-}
-
-void	move_max_to_b(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*curr;
-	t_list	*max;
-
-	if (stack_a == NULL || *stack_a == NULL)
-		return ;
-	curr = *stack_a;
-	max = findmax(stack_a);
-	while (curr != max)
-	{
-		rotate_a(stack_a);
-		curr = *stack_a;
-	}
-	push_b(stack_b, stack_a);
-}
