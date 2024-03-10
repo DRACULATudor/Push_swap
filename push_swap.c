@@ -13,42 +13,43 @@
 #include "push_swap.h"
 
 
-int	main(int argc, char *argv[])
+void 	len_sort(t_list **stack_a, t_list **stack_b, int len)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	char	**split_argv;
-	int		len;
-
-	stack_a = NULL;
-	stack_b = NULL;
-	split_argv = NULL;
-	len = 0;
-	if (!check_args(argc, argv))
-		return (1);
-	if (argc == 2)
-	{
-		split_argv = ft_split(argv[1], ' ');
-		if (split_argv == NULL)
-		{
-			free(split_argv);
-			return (1);
-		}
-		add_to_Sa(&stack_a, split_argv);
-		free(split_argv);
-	}
-	else if (argc > 2)
-		add_to_Sa(&stack_a, &argv[1]);
-	len = lenofnums(&argv[1]);
 	if (len <= 0)
-		return (1);
-	if (check_list_sorted(&stack_a) == 0)
+		return;
+	if (check_list_sorted(stack_a) == 0)
 	{
 		if (len <= 3)
-			sort_smlen(&stack_a);
+			sort_smlen(stack_a);
 		else if (len > 3)
-			sort(&stack_a, &stack_b);
+			sort(stack_a, stack_b);
 	}
-	free_stack(&stack_a);
-	return (0);
+}
+
+
+int	main(int argc, char *argv[])
+{
+    t_list	*stack_a;
+    t_list	*stack_b;
+    char	**split_argv;
+    int		len;
+
+    stack_a = NULL;
+    stack_b = NULL;
+    if (!check_args(argc, argv))
+        return (1);
+    if (argc == 2)
+    {
+        split_argv = ft_split(argv[1], ' ');
+        if (!split_argv)
+            return (1);
+        add_to_Sa(&stack_a, split_argv);
+        free(split_argv);
+    }
+    else if (argc > 2)
+        add_to_Sa(&stack_a, &argv[1]);
+    len = lenofnums(&argv[1]);
+    len_sort(&stack_a, &stack_b, len);
+    free_stack(&stack_a);
+    return (0);
 }
