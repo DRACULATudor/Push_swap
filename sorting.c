@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 16:26:43 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/06 14:41:32 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/11 14:07:55 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*cheapest(t_list *stack_a)
 		return (NULL);
 	while (stack_a)
 	{
-		if (stack_a->cheapest)
+		if (stack_a != NULL && stack_a->cheapest)
 			return (stack_a);
 		stack_a = stack_a->next;
 	}
@@ -27,7 +27,8 @@ t_list	*cheapest(t_list *stack_a)
 
 void	rotate(t_list **stack_a, t_list **stack_b, t_list *cheapest_node)
 {
-	while ((*stack_b) != cheapest_node->target_node && (*stack_a) != cheapest_node)
+	while ((*stack_b) != cheapest_node->target_node
+		&& (*stack_a) != cheapest_node)
 		rotaterotate(stack_a, stack_b);
 	curent_s_index(*stack_a);
 	curent_s_index(*stack_b);
@@ -36,7 +37,8 @@ void	rotate(t_list **stack_a, t_list **stack_b, t_list *cheapest_node)
 void	reverse_rotation(t_list **stack_a, t_list **stack_b,
 		t_list *cheapest_node)
 {
-	while ((*stack_b) != cheapest_node->target_node && (*stack_a) != cheapest_node)
+	while ((*stack_b) != cheapest_node->target_node
+		&& (*stack_a) != cheapest_node)
 		reverse_rotaterotate(stack_a, stack_b);
 	curent_s_index(*stack_a);
 	curent_s_index(*stack_b);

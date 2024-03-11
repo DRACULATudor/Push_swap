@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:55:54 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/01 11:26:05 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/07 16:16:27 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,5 @@ void	rotaterotate(t_list **stack_a, t_list **stack_b)
 			last = last->next;
 		last->next = tmp;
 	}
-	ft_printf("rr");
+	ft_printf("rr\n");
 }

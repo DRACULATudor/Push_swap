@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_operations4and5num.c                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 09:55:17 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/06 09:33:22 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/11 12:54:56 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list	*findmax(t_list **stack_a)
 	return (max_node);
 }
 
-t_list *findmin(t_list **stack_a)
+t_list	*findmin(t_list **stack_a)
 {
 	t_list	*curr;
 	t_list	*min_node;
@@ -48,3 +48,9 @@ t_list *findmin(t_list **stack_a)
 	return (min_node);
 }
 
+int	validate_argc(int argc)
+{
+	if (argc < 2)
+		exit(0);
+	return (1);
+}

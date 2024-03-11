@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:53 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/06 11:02:30 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/11 11:20:09 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,30 +41,31 @@ t_list	*ft_lstnew(int content)
 	return (new);
 }
 
-void 	add_to_Sa(t_list **stack,char **str)
+void	add_to_sta(t_list **stack, char **str)
 {
-	int i = 0;
+	int		i;
 	t_list	*new_node;
-	t_list  *temp;
-	t_list  *next2;
-	
+	t_list	*temp;
+	t_list	*next2;
+
+	i = 0;
 	while (str[i])
+	{
+		new_node = ft_lstnew(ft_atoi(str[i]));
+		if (new_node == NULL)
 		{
-			new_node = ft_lstnew(ft_atoi(str[i]));
-			if (new_node == NULL)
+			temp = *stack;
+			while (temp)
 			{
-				temp = *stack;
-				while (temp)
-				{
-					next2 = temp->next;
-					free(temp);
-					temp = next2;
-				}
-				free_errors(stack);
-				*stack = NULL;
-				return;
+				next2 = temp->next;
+				free(temp);
+				temp = next2;
 			}
-			ft_lstadd_back(stack, new_node);
-			i++;
+			free_errors(stack);
+			*stack = NULL;
+			return ;
 		}
+		ft_lstadd_back(stack, new_node);
+		i++;
+	}
 }

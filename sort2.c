@@ -1,23 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/11 11:07:50 by tlupu             #+#    #+#             */
+/*   Updated: 2024/03/11 11:09:18 by tlupu            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-t_list	*find_min(t_list **stack_a)
-{
-	t_list	*curr;
-	t_list	*min_node;
-
-	if (stack_a == NULL || *stack_a == NULL)
-		return (NULL);
-	curr = *stack_a;
-	min_node = *stack_a;
-	while (curr != NULL)
-	{
-		if (curr->data < min_node->data)
-			min_node = curr;
-		curr = curr->next;
-	}
-	return (min_node);
-}
-
 
 void	targ_node_forb(t_list *stack_a, t_list *stack_b)
 {
@@ -48,7 +41,6 @@ void	targ_node_forb(t_list *stack_a, t_list *stack_b)
 	}
 }
 
-
 void	init_nodes_forb(t_list *stack_a, t_list *stack_b)
 {
 	curent_s_index(stack_a);
@@ -56,13 +48,11 @@ void	init_nodes_forb(t_list *stack_a, t_list *stack_b)
 	targ_node_forb(stack_a, stack_b);
 }
 
-
 void	move_back_sa(t_list **stack_a, t_list **stack_b)
 {
 	check_push(stack_a, (*stack_b)->target_node, 4);
 	push_a(stack_a, stack_b);
 }
-
 
 void	min_check(t_list **stack_a)
 {
@@ -75,10 +65,9 @@ void	min_check(t_list **stack_a)
 	}
 }
 
-
 void	sort(t_list **stack_a, t_list **stack_b)
 {
-	int		len_a;
+	int	len_a;
 
 	len_a = len_stack(stack_a);
 	if (stack_a == NULL || *stack_a == NULL || (*stack_a)->next == NULL)

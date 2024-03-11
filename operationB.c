@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:17:33 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/01 11:22:49 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/11 11:09:55 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	reverse_rotate_b(t_list **stack_b)
 
 void	swapswap(t_list **stack_a, t_list **stack_b)
 {
-	int temp;
+	int	temp;
 
 	if (stack_b != NULL && *stack_b != NULL && (*stack_b)->next != NULL)
 	{
@@ -84,7 +84,6 @@ void	swapswap(t_list **stack_a, t_list **stack_b)
 		(*stack_b)->data = (*stack_b)->next->data;
 		(*stack_b)->next->data = temp;
 	}
-
 	if (stack_a != NULL && *stack_a != NULL && (*stack_a)->next != NULL)
 	{
 		temp = (*stack_a)->data;

@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:28 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/01 11:08:20 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/11 12:54:15 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_check_num(char *str)
 	}
 	return (1);
 }
+
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -101,38 +102,27 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int	check_args(int argc, char **argv)
 {
-	int i;
-	char **split_argv;
+	int		i;
+	char	**split_argv;
 
 	i = 0;
-	if (argc < 2)
-	{
-		ft_printf("Error\n");
+	if (!validate_argc(argc))
 		return (0);
-	}
 	if (argc == 2)
 	{
 		split_argv = ft_split(argv[1], ' ');
 		if (split_argv == NULL)
-		{
-			ft_printf("Error\n");
-			return (0);
-		}
+			free_split_fail(split_argv);
 		argv = split_argv;
 	}
 	if (!ft_strncmp(argv[0], "./push_swap", 10))
 		i++;
 	while (argv[i])
 	{
-		if (ft_check_num(argv[i]) == 0)
+		if (ft_check_num(argv[i]) == 0 || ft_checkdup(&argv[i]) == 1)
 		{
 			ft_printf("Error\n");
-			return (0);
-		}
-		if (ft_checkdup(&argv[i]) == 1)
-		{
-			ft_printf("Error\n");
-			return (0);
+			exit(1);
 		}
 		i++;
 	}

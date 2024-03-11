@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:09:40 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/06 13:42:21 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/11 13:59:33 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	cost_analytics(t_list *stack_a, t_list *stack_b)
 		stack_a->cost = stack_a->index;
 		if (!(stack_a->abovem_med))
 			stack_a->cost = length_a - (stack_a->index);
-		if(stack_a->target_node->abovem_med)
+		if (stack_a->target_node->abovem_med)
 			stack_a->cost += stack_a->target_node->index;
 		else
 			stack_a->cost += length_b - (stack_a->target_node->index);
@@ -82,10 +82,11 @@ void	set_targ_node(t_list *stack_a, t_list *stack_b)
 
 void	cheapest_node(t_list *stack_a)
 {
-	int max;
-	t_list *cheapest_node;
+	int		max;
+	t_list	*cheapest_node;
+
 	if (!stack_a)
-		return;
+		return ;
 	max = INT_MAX;
 	while (stack_a)
 	{
@@ -107,4 +108,3 @@ void	init_nodes(t_list *stack_a, t_list *stack_b)
 	cost_analytics(stack_a, stack_b);
 	cheapest_node(stack_a);
 }
-

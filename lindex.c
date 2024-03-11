@@ -6,38 +6,42 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:58:24 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/04 11:59:20 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/11 12:25:05 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	is_whitespace(char c)
+{
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f'
+		|| c == '\v');
+}
+
 int	lenofnums(char **arr)
 {
 	int	i;
 	int	j;
-	int	len;
+	int	count;
 
 	j = 0;
-	len = 0;
+	count = 0;
 	while (arr[j] != NULL)
 	{
 		i = 0;
 		if (arr[j][0] != '\0')
+		{
 			while (arr[j][i] != '\0')
 			{
-				if ((arr[j][i] != ' ' && arr[j][i] != '\t' && arr[j][i] != '\n'
-						&& arr[j][i] != '\r' && arr[j][i] != '\f'
-						&& arr[j][i] != '\v') && (i == 0 || (arr[j][i
-							- 1] == ' ' || arr[j][i - 1] == '\t' || arr[j][i
-							- 1] == '\n' || arr[j][i - 1] == '\r' || arr[j][i
-							- 1] == '\f' || arr[j][i - 1] == '\v')))
-					len++;
+				if (!is_whitespace(arr[j][i]) && (i == 0
+						|| is_whitespace(arr[j][i - 1])))
+					count++;
 				i++;
 			}
+		}
 		j++;
 	}
-	return (len);
+	return (count);
 }
 
 int	check_list_sorted(t_list **stack)
@@ -58,8 +62,9 @@ int	check_list_sorted(t_list **stack)
 
 int	len_stack(t_list **stack_a)
 {
-	int i;
-	t_list *curr;
+	int		i;
+	t_list	*curr;
+
 	i = 0;
 	curr = *stack_a;
 	while (curr != NULL)

@@ -6,12 +6,12 @@
 #    By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 16:15:09 by tlupu             #+#    #+#              #
-#    Updated: 2024/03/05 16:28:28 by tlupu            ###   ########.fr        #
+#    Updated: 2024/03/11 14:09:40 by tlupu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-FLAGZ = -Wall -Werror -Wall
+FLAGZ = -Wall -Werror -Wextra
 FT_PRINTF_DIR = ./printf
 SRC = push_swap.c $(FT_PRINTF_DIR)/*.c \
 	  checks.c add_stackA.c split.c\
