@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 09:55:17 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/11 12:54:56 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/12 17:04:49 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,13 @@ t_list	*findmin(t_list **stack_a)
 	return (min_node);
 }
 
-int	validate_argc(int argc)
+int	validate_argc(int argc, char **argv)
 {
+	int	n;
+
+	n = lenofnums(&argv[1]);
+	if (n <= 0)
+		errors(1);
 	if (argc < 2)
 		exit(0);
 	return (1);

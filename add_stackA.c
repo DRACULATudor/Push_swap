@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:53 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/11 11:20:09 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/12 17:05:02 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,16 @@ t_list	*ft_lstnew(int content)
 	t_list	*new;
 
 	new = (t_list *)malloc(sizeof(t_list));
-	if (new == NULL)
+	if (!new)
 		return (NULL);
 	new->data = content;
 	new->next = NULL;
+	new->prev = NULL;
+	new->index = 0;
+	new->cost = 0;
+	new->abovem_med = false;
+	new->cheapest = false;
+	new->target_node = NULL;
 	return (new);
 }
 

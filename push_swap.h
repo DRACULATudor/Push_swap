@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:17 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/11 12:45:17 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/12 16:19:14 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_list
 }					t_list;
 
 int					ft_check_num(char *str);
+int					is_whitespace(char c);
 int					ft_atoi(const char *str);
 int					ft_checkdup(char **argv);
 int					check_args(int argc, char *argv[]);
@@ -85,6 +86,7 @@ void				init_nodes_forb(t_list *stack_a, t_list *stack_b);
 void				targ_node_forb(t_list *stack_a, t_list *stack_b);
 t_list				*find_min(t_list **stack_a);
 void				free_split_fail(char **arr);
-int					validate_argc(int argc);
+int					validate_argc(int argc, char **argv);
+void				errors(int x);
 
 #endif

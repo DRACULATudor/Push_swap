@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:09:40 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/11 13:59:33 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/12 13:22:57 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	curent_s_index(t_list *stack)
 		else
 			stack->abovem_med = false;
 		stack = stack->next;
-		i++;
+		++i;
 	}
 }
 

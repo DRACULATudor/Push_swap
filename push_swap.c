@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:10 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/11 14:01:50 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/12 17:03:22 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int argc, char *argv[])
 	else if (argc > 2)
 		add_to_sta(&stack_a, &argv[1]);
 	len = lenofnums(&argv[1]);
-	stack_a->cheapest = false;
 	len_sort(&stack_a, &stack_b, len);
 	free_stack(&stack_a);
 	return (0);

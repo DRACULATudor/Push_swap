@@ -6,7 +6,7 @@
 #    By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 16:15:09 by tlupu             #+#    #+#              #
-#    Updated: 2024/03/11 14:09:40 by tlupu            ###   ########.fr        #
+#    Updated: 2024/03/12 17:04:24 by tlupu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = push_swap.c $(FT_PRINTF_DIR)/*.c \
 all:	$(NAME) 
 
 $(NAME): 
-	cc $(FLAGZ) -c $(SRC) -I $(FT_PRINTF_DIR)
+	cc $(FLAGZ) -c $(SRC)  -I $(FT_PRINTF_DIR)
 	ar rc $(NAME).a *.o
 	cc $(FLAGZ) -o $(NAME) $(NAME).a -L$(FT_PRINTF_DIR)
 	rm -f *.o

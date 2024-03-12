@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:28 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/11 12:54:15 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/12 17:39:59 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_check_num(char *str)
 	int	i;
 
 	i = 0;
+	if ((str[i] == '-' || str[i] == '+') && str[i + 1] == '0')
+		errors(i);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	while (str[i] != '\0')
@@ -30,9 +32,9 @@ int	ft_check_num(char *str)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	result;
-	int	sign;
+	long	i;
+	long	result;
+	long	sign;
 
 	result = 0;
 	sign = 1;
@@ -52,6 +54,8 @@ int	ft_atoi(const char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
+	if ((result * sign) > INT_MAX || (result * sign) < -2147483648)
+		errors(i);
 	return (sign * result);
 }
 
@@ -104,9 +108,10 @@ int	check_args(int argc, char **argv)
 {
 	int		i;
 	char	**split_argv;
+	long	num;
 
 	i = 0;
-	if (!validate_argc(argc))
+	if (!validate_argc(argc, argv))
 		return (0);
 	if (argc == 2)
 	{
@@ -119,12 +124,12 @@ int	check_args(int argc, char **argv)
 		i++;
 	while (argv[i])
 	{
-		if (ft_check_num(argv[i]) == 0 || ft_checkdup(&argv[i]) == 1)
-		{
-			ft_printf("Error\n");
-			exit(1);
-		}
+		num = ft_atoi(argv[i]);
+		if (ft_check_num(argv[i]) == 0 || ft_checkdup(&argv[i]) == 1
+			|| num > INT_MAX || num < INT_MIN)
+			errors(i);
 		i++;
 	}
+	// free_split_fail(split_argv);
 	return (1);
 }

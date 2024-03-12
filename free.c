@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:42:30 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/11 12:45:41 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/12 17:33:29 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ void	free_split_fail(char **arr)
 		i++;
 	}
 	free(arr);
-	ft_printf("Error\n");
 	return ;
+}
+
+void	errors(int x)
+{
+	x = 0;
+	ft_printf("Error\n");
+	exit(1);
 }
