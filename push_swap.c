@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:10 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/12 17:03:22 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:31:00 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	len_sort(t_list **stack_a, t_list **stack_b, int len)
 		return ;
 	if (check_list_sorted(stack_a) == 0)
 	{
-		if (len <= 3)
+		if (len == 2)
+			swap_a(stack_a);
+		else if (len == 3)
 			sort_smlen(stack_a);
 		else if (len > 3)
 			sort(stack_a, stack_b);
@@ -42,7 +44,7 @@ int	main(int argc, char *argv[])
 		if (!split_argv)
 			return (1);
 		add_to_sta(&stack_a, split_argv);
-		free(split_argv);
+		free_split_fail(split_argv);
 	}
 	else if (argc > 2)
 		add_to_sta(&stack_a, &argv[1]);

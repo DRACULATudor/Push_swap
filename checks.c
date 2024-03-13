@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:28 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/12 17:39:59 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/13 16:00:31 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	ft_check_num(char *str)
 	i = 0;
 	if ((str[i] == '-' || str[i] == '+') && str[i + 1] == '0')
 		errors(i);
-	if (str[i] == '-' || str[i] == '+')
+	if ((str[i] == '-' || str[i] == '+') && (str[i + 1] > '0' && str[i
+				+ 1] <= '9'))
 		i++;
 	while (str[i] != '\0')
 	{
@@ -28,35 +29,6 @@ int	ft_check_num(char *str)
 		i++;
 	}
 	return (1);
-}
-
-int	ft_atoi(const char *str)
-{
-	long	i;
-	long	result;
-	long	sign;
-
-	result = 0;
-	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-		|| str[i] == '\f' || str[i] == '\v')
-		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	if ((result * sign) > INT_MAX || (result * sign) < -2147483648)
-		errors(i);
-	return (sign * result);
 }
 
 int	ft_checkdup(char **argv)
@@ -104,13 +76,29 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
+void	check_argv(char **argv, char **split_argv, int i)
+{
+	long	num;
+
+	while (argv[i])
+	{
+		num = ft_atoi(argv[i]);
+		if (ft_check_num(argv[i]) == 0 || ft_checkdup(&argv[i]) == 1
+			|| num > INT_MAX || num < INT_MIN)
+			errors(i);
+		i++;
+	}
+	if (split_argv)
+		free_split_fail(split_argv);
+}
+
 int	check_args(int argc, char **argv)
 {
 	int		i;
 	char	**split_argv;
-	long	num;
 
 	i = 0;
+	split_argv = NULL;
 	if (!validate_argc(argc, argv))
 		return (0);
 	if (argc == 2)
@@ -122,14 +110,6 @@ int	check_args(int argc, char **argv)
 	}
 	if (!ft_strncmp(argv[0], "./push_swap", 10))
 		i++;
-	while (argv[i])
-	{
-		num = ft_atoi(argv[i]);
-		if (ft_check_num(argv[i]) == 0 || ft_checkdup(&argv[i]) == 1
-			|| num > INT_MAX || num < INT_MIN)
-			errors(i);
-		i++;
-	}
-	// free_split_fail(split_argv);
+	check_argv(argv, split_argv, i);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:07:50 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/11 11:09:18 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:58:03 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	targ_node_forb(t_list *stack_a, t_list *stack_b)
 {
 	t_list	*current_a;
 	t_list	*targ_node;
-	int		max_index;
+	long	max_index;
 
 	if (stack_b == NULL)
 		return ;
 	while (stack_b)
 	{
-		max_index = INT_MAX;
+		max_index = LONG_MAX;
 		current_a = stack_a;
 		while (current_a)
 		{
@@ -33,7 +33,7 @@ void	targ_node_forb(t_list *stack_a, t_list *stack_b)
 			}
 			current_a = current_a->next;
 		}
-		if (max_index == INT_MAX)
+		if (max_index == LONG_MAX)
 			stack_b->target_node = findmin(&stack_a);
 		else
 			stack_b->target_node = targ_node;

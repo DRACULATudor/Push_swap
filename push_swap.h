@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:17 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/12 16:19:14 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:09:38 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ t_list				*find_min(t_list **stack_a);
 void				free_split_fail(char **arr);
 int					validate_argc(int argc, char **argv);
 void				errors(int x);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

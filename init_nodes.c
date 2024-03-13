@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:09:40 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/12 13:22:57 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:58:33 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ void	set_targ_node(t_list *stack_a, t_list *stack_b)
 {
 	t_list	*current_b;
 	t_list	*targ_node;
-	int		min_index;
+	long	min_index;
 
 	while (stack_a)
 	{
-		min_index = INT_MIN;
+		min_index = LONG_MIN;
 		current_b = stack_b;
 		while (current_b)
 		{
@@ -72,7 +72,7 @@ void	set_targ_node(t_list *stack_a, t_list *stack_b)
 			}
 			current_b = current_b->next;
 		}
-		if (min_index == INT_MIN)
+		if (min_index == LONG_MIN)
 			stack_a->target_node = findmax(&stack_b);
 		else
 			stack_a->target_node = targ_node;

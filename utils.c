@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 09:55:17 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/12 17:04:49 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/13 16:00:16 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,33 @@ int	validate_argc(int argc, char **argv)
 	if (argc < 2)
 		exit(0);
 	return (1);
+}
+
+int	ft_atoi(const char *str)
+{
+	long	i;
+	long	result;
+	long	sign;
+
+	result = 0;
+	sign = 1;
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
+		|| str[i] == '\f' || str[i] == '\v')
+		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	if ((result * sign) > INT_MAX || (result * sign) < -2147483648)
+		errors(i);
+	return (sign * result);
 }
