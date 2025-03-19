@@ -21,7 +21,7 @@ make
 ```
 Or, if there is no Makefile:
 ```
-c++ -Wall -Wextra -Werror -std=c++98 *.cpp -o program
+gcc -Wall -Wextra -Werror
 ```
 Run the program:
 ```
