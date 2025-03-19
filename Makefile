@@ -6,7 +6,7 @@
 #    By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 16:15:09 by tlupu             #+#    #+#              #
-#    Updated: 2024/03/13 16:03:38 by tlupu            ###   ########.fr        #
+#    Updated: 2024/03/13 17:11:44 by tlupu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,14 +26,13 @@ $(NAME):
 	cc $(FLAGZ) -c $(SRC)  -I $(FT_PRINTF_DIR)
 	ar rc $(NAME).a *.o
 	cc $(FLAGZ) -o $(NAME) $(NAME).a -L$(FT_PRINTF_DIR)
-	rm -f *.o
-	rm -f *.a
+
 	
 clean:
 	rm -f *.o
-	rm -f $(NAME)
+	rm -f $(NAME).a
 
 fclean:	clean
-	rm -f $(NAME).a
+	rm -f $(NAME)
     
 re:	fclean	all

@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 09:55:17 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/13 16:00:16 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/13 17:08:53 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	validate_argc(int argc, char **argv)
 
 	n = lenofnums(&argv[1]);
 	if (n <= 0)
-		errors(1);
+		exit(0);
 	if (argc < 2)
 		exit(0);
 	return (1);

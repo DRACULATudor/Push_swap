@@ -6,7 +6,7 @@
 /*   By: tlupu <tlupu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:14:28 by tlupu             #+#    #+#             */
-/*   Updated: 2024/03/13 16:00:31 by tlupu            ###   ########.fr       */
+/*   Updated: 2024/03/13 17:08:20 by tlupu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	check_args(int argc, char **argv)
 	i = 0;
 	split_argv = NULL;
 	if (!validate_argc(argc, argv))
-		return (0);
+		return (1);
 	if (argc == 2)
 	{
 		split_argv = ft_split(argv[1], ' ');

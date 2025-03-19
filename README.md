@@ -1,2 +1,0 @@
-Push_swap is a project that teaches you about sorting algorithms and how to optimize them. The project involves sorting a stack of integers using a limited set of operations (push, swap and rotate) and minimizing the number of moves. 
-At the beginning, you must have one stack, called stack a with all your numbers placed next to each other. With the help of the operations (push, swap and rotate), at the very end, all the numbers in your stack a will have to be sorted. 
